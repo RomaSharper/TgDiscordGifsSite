@@ -93,6 +93,14 @@ nav .container {
   width: 100%;
 }
 
+.nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
 .nav-toggle {
   display: none;
   background: none;

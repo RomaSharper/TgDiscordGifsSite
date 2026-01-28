@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Sync Bot - Discord & Telegram</title>
-    <link rel="stylesheet" href="css/ajax.css">
     <link rel="stylesheet" href="css/button.css">
-    <link rel="stylesheet" href="css/chat.css">
     <link rel="stylesheet" href="css/faq.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/form.css">
@@ -15,6 +13,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/select.css">
+    <link rel="stylesheet" href="css/privacy.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,21 +30,6 @@
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
 
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading-screen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <div class="logo-icon">🎬</div>
-                <span>Media Sync</span>
-            </div>
-            <div class="loading-progress">
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
@@ -58,6 +42,7 @@
                 <li><a href="#how-it-works"><i class="fas fa-play-circle"></i> Как работает</a></li>
                 <li><a href="#contact"><i class="fas fa-headset"></i> Поддержка</a></li>
                 <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Конфиденциальность</a></li>
+                <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
             </ul>
             <button class="nav-toggle" id="nav-toggle">
                 <i class="fas fa-bars"></i>
@@ -82,24 +67,20 @@
                             rel="noopener">
                             <i class="fab fa-telegram"></i> Запустить в Telegram
                         </a>
-                        <a href="https://github.com/yourusername/media-sync-bot" class="btn btn-secondary"
-                            target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
                     </div>
 
                     <!-- Stats -->
                     <div class="stats">
                         <div class="stat-card">
-                            <div class="stat-number">2</div>
+                            <div class="stat-number"><span class="stat-value">2</span></div>
                             <div class="stat-label">Платформы</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">24/7</div>
+                            <div class="stat-number"><span class="stat-value">24</span>/7</div>
                             <div class="stat-label">Работает</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">100%</div>
+                            <div class="stat-number"><span class="stat-value">100</span>%</div>
                             <div class="stat-label">Бесплатно</div>
                         </div>
                     </div>
@@ -187,32 +168,6 @@
                             Pinterest ссылки для скачивания контента.</p>
                     </div>
                 </div>
-
-                <!-- Video Demo -->
-                <div class="video-demo">
-                    <div class="demo-player">
-                        <div class="player-controls">
-                            <button class="play-btn"><i class="fas fa-play"></i></button>
-                            <div class="timeline">
-                                <div class="progress"></div>
-                            </div>
-                            <span class="time">0:00 / 1:30</span>
-                        </div>
-                        <div class="demo-scenes">
-                            <div class="scene active">
-                                <div class="scene-discord">
-                                    <div class="message">🎬 Отправляю гифку...</div>
-                                </div>
-                                <div class="scene-arrow">
-                                    <i class="fas fa-sync-alt"></i>
-                                </div>
-                                <div class="scene-telegram">
-                                    <div class="message">✅ GIF получен из Discord!</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -239,105 +194,7 @@
                             <a href="https://t.me/romasharper" target="_blank" rel="noopener">@romasharper</a>
                             <p class="contact-note">Прямая связь с разработчиком</p>
                         </div>
-                        <div class="contact-card">
-                            <div class="contact-icon"><i class="fas fa-comments"></i></div>
-                            <h3>Сообщество</h3>
-                            <a href="https://t.me/romasharper" target="_blank" rel="noopener">Telegram группа</a>
-                            <p class="contact-note">Обсуждение и помощь</p>
-                        </div>
                     </div>
-
-                    <form class="contact-form" id="contact-form">
-                        <h3><i class="fas fa-paper-plane"></i> Отправить сообщение</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="name"><i class="fas fa-user"></i> Ваше имя</label>
-                                <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
-                                <div class="form-hint">Как к вам обращаться?</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                                <input type="email" id="email" name="email" required placeholder="your@email.com">
-                                <div class="form-hint">На этот email придет ответ</div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="custom-subject"><i class="fas fa-tag"></i> Тема сообщения</label>
-                            <div class="custom-select" id="custom-select-container">
-                                <div class="select-header" id="select-header">
-                                    <span class="select-placeholder">Выберите тему</span>
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                                <div class="select-dropdown" id="select-dropdown">
-                                    <div class="select-search">
-                                        <input type="text" placeholder="Поиск тем..." id="select-search">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                    <div class="select-options" id="select-options">
-                                        <!-- Options loaded by select.js -->
-                                    </div>
-                                    <div class="select-footer">
-                                        <button type="button" class="select-custom-btn">
-                                            <i class="fas fa-plus"></i> Предложить свою тему
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="hidden" id="custom-subject" name="subject" value="">
-                            <div class="selected-tags" id="selected-tags"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message"><i class="fas fa-comment"></i> Подробное описание</label>
-                            <div class="message-toolbar">
-                                <button type="button" class="format-btn" data-format="bold"><i
-                                        class="fas fa-bold"></i></button>
-                                <button type="button" class="format-btn" data-format="italic"><i
-                                        class="fas fa-italic"></i></button>
-                                <button type="button" class="format-btn" data-format="code"><i
-                                        class="fas fa-code"></i></button>
-                            </div>
-                            <textarea id="message" name="message" rows="5" required
-                                placeholder="Опишите ваш вопрос или проблему максимально подробно"></textarea>
-                            <div class="message-counter">
-                                <span id="char-count">0</span> / 2000 символов
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="attachments"><i class="fas fa-paperclip"></i> Приложения (если нужно)</label>
-                            <div class="file-upload">
-                                <input type="file" id="attachments" name="attachments" multiple
-                                    accept="image/*,.pdf,.txt">
-                                <div class="upload-area" id="upload-area">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <p>Перетащите файлы сюда или <span>выберите файлы</span></p>
-                                    <p class="upload-hint">Максимум 5 файлов, до 10MB каждый</p>
-                                </div>
-                                <div class="upload-preview" id="upload-preview"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="subscribe" name="subscribe" checked>
-                            <label for="subscribe">
-                                <i class="fas fa-bell"></i> Получать уведомления о статусе заявки
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">
-                            <span id="btn-text">Отправить сообщение</span>
-                            <span id="btn-loader" class="loader" style="display: none;"></span>
-                            <i class="fas fa-paper-plane" id="btn-icon"></i>
-                        </button>
-
-                        <div id="form-message" class="form-message"></div>
-
-                        <div class="form-note">
-                            <i class="fas fa-info-circle"></i> Мы отвечаем на все сообщения в течение 24 часов
-                        </div>
-                    </form>
                 </div>
             </div>
         </section>
@@ -348,24 +205,431 @@
                 <div class="section-header">
                     <span class="section-label"><i class="fas fa-shield-alt"></i> Конфиденциальность</span>
                     <h2>Политика конфиденциальности</h2>
-                    <p>Ваша безопасность - наш приоритет</p>
+                    <p>Ваша безопасность и приватность - наш высший приоритет</p>
                 </div>
 
                 <div class="privacy-content">
-                    <h3><i class="fas fa-lock"></i> Сбор и использование информации</h3>
-                    <p>Media Sync Bot собирает минимальную информацию, необходимую для работы:</p>
-                    <ul>
-                        <li><strong>ID Discord аккаунта</strong> - для идентификации пользователя</li>
-                        <li><strong>ID Telegram аккаунта</strong> - для привязки аккаунтов</li>
-                        <li><strong>Сообщения с медиа файлами</strong> - временно хранятся для обработки</li>
-                    </ul>
+                    <!-- Введение -->
+                    <div class="privacy-section">
+                        <div class="privacy-intro">
+                            <div class="privacy-badge">
+                                <i class="fas fa-info-circle"></i>
+                                <div>
+                                    <strong>Последнее обновление:</strong> <span id="current-date"></span>
+                                    <script>
+                                        document.getElementById('current-date').textContent =
+                                            new Date().toLocaleDateString('ru-RU', {
+                                                year: 'numeric',
+                                                month: 'long',
+                                                day: 'numeric'
+                                            });
+                                    </script>
+                                </div>
+                            </div>
+                            <p>Добро пожаловать в Media Sync Bot! Эта Политика конфиденциальности описывает, как бот
+                                Media Sync ("мы", "нас", "наш") собирает, использует, хранит и защищает вашу информацию
+                                при использовании наших сервисов на платформах Discord и Telegram.</p>
+                            <div class="privacy-note">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p><strong>Важно:</strong> Используя Media Sync Bot, вы соглашаетесь с условиями этой
+                                    Политики конфиденциальности. Если вы не согласны с этими условиями, пожалуйста, не
+                                    используйте наш сервис.</p>
+                            </div>
+                        </div>
+                    </div>
 
-                    <h3><i class="fas fa-database"></i> Хранение данных</h3>
-                    <p>Все медиа файлы обрабатываются в памяти и не сохраняются на серверах. Логи хранятся не более 7
-                        дней для отладки и улучшения сервиса.</p>
+                    <!-- Краткий обзор -->
+                    <div class="privacy-section">
+                        <h3><i class="fas fa-eye"></i> Краткий обзор</h3>
+                        <div class="privacy-highlights">
+                            <div class="highlight-card">
+                                <div class="highlight-icon"><i class="fas fa-database"></i></div>
+                                <h4>Минимальные данные</h4>
+                                <p>Собираем только необходимое для работы бота</p>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="highlight-icon"><i class="fas fa-clock"></i></div>
+                                <h4>Временное хранение</h4>
+                                <p>Медиа файлы обрабатываются и удаляются</p>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="highlight-icon"><i class="fas fa-lock"></i></div>
+                                <h4>Безопасность</h4>
+                                <p>Ваши данные под защитой</p>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="highlight-icon"><i class="fas fa-ban"></i></div>
+                                <h4>Не продаем данные</h4>
+                                <p>Не передаем данные третьим лицам</p>
+                            </div>
+                        </div>
+                    </div>
 
-                    <h3><i class="fas fa-share-alt"></i> Передача данных третьим лицам</h3>
-                    <p>Мы не передаем ваши данные третьим лицам. Все обработки происходят на наших серверах.</p>
+                    <!-- Какие данные мы собираем -->
+                    <div class="privacy-section">
+                        <h3><i class="fas fa-database"></i> Какие данные мы собираем</h3>
+                        <p>Media Sync Bot собирает минимальную информацию, необходимую для предоставления сервиса
+                            синхронизации медиа между Discord и Telegram.</p>
+
+                        <div class="data-category">
+                            <h4><i class="fas fa-user-tag"></i> 1. Идентификационные данные</h4>
+                            <div class="data-details">
+                                <div class="data-item">
+                                    <span class="data-label">Discord User ID</span>
+                                    <span class="data-purpose">Для идентификации вашего аккаунта Discord</span>
+                                    <span class="data-storage">Хранится до отвязки аккаунта</span>
+                                </div>
+                                <div class="data-item">
+                                    <span class="data-label">Telegram User ID</span>
+                                    <span class="data-purpose">Для идентификации вашего аккаунта Telegram</span>
+                                    <span class="data-storage">Хранится до отвязки аккаунта</span>
+                                </div>
+                                <div class="data-item">
+                                    <span class="data-label">Discord Channel ID</span>
+                                    <span class="data-purpose">Для определения канала отправки</span>
+                                    <span class="data-storage">Хранится в привязке аккаунтов</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="data-category">
+                            <h4><i class="fas fa-file"></i> 2. Данные о медиа файлах</h4>
+                            <p><i class="fas fa-info-circle"></i> <strong>Важно:</strong> Медиа файлы обрабатываются
+                                только в оперативной памяти и не сохраняются на серверах.</p>
+                            <div class="data-details">
+                                <div class="data-item">
+                                    <span class="data-label">Метаданные файлов</span>
+                                    <span class="data-purpose">Тип, размер, формат, длительность</span>
+                                    <span class="data-storage">Удаляется после обработки</span>
+                                </div>
+                                <div class="data-item">
+                                    <span class="data-label">Техническая информация</span>
+                                    <span class="data-purpose">Разрешение, битрейт, кодек</span>
+                                    <span class="data-storage">Используется только для конвертации</span>
+                                </div>
+                                <div class="data-item">
+                                    <span class="data-label">URL источников</span>
+                                    <span class="data-purpose">Ссылки на Pinterest/Tenor/Giphy</span>
+                                    <span class="data-storage">Используются только для скачивания</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="data-category">
+                            <h4><i class="fas fa-cogs"></i> 3. Техническая информация</h4>
+                            <div class="data-details">
+                                <div class="data-item">
+                                    <span class="data-label">Логи операций</span>
+                                    <span class="data-purpose">Время, тип операций, статус выполнения</span>
+                                    <span class="data-storage">Хранятся 30 дней</span>
+                                </div>
+                                <div class="data-item">
+                                    <span class="data-label">Ошибки и исключения</span>
+                                    <span class="data-purpose">Для улучшения работы сервиса</span>
+                                    <span class="data-storage">Хранятся 7 дней</span>
+                                </div>
+                                <div class="data-item">
+                                    <span class="data-label">Производительность</span>
+                                    <span class="data-purpose">Время обработки, скорость загрузки</span>
+                                    <span class="data-storage">Анонимная статистика</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="data-category">
+                            <h4><i class="fas fa-globe"></i> 4. Веб-сайт и контактная форма</h4>
+                            <div class="data-details">
+                                <div class="data-item">
+                                    <span class="data-label">Имя и email</span>
+                                    <span class="data-purpose">Для обратной связи</span>
+                                    <span class="data-storage">Хранится 1 год</span>
+                                </div>
+                                <div class="data-item">
+                                    <span class="data-label">Сообщения</span>
+                                    <span class="data-purpose">Содержание ваших запросов</span>
+                                    <span class="data-storage">Хранится до решения запроса</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Как мы используем информацию -->
+                    <div class="privacy-section">
+                        <h3><i class="fas fa-cogs"></i> Как мы используем информацию</h3>
+
+                        <div class="usage-grid">
+                            <div class="usage-card">
+                                <div class="usage-icon" style="background: rgba(0, 217, 255, 0.1);">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
+                                <h4>Синхронизация медиа</h4>
+                                <ul>
+                                    <li>Пересылка файлов между платформами</li>
+                                    <li>Автоматическая конвертация форматов</li>
+                                    <li>Оптимизация размера файлов</li>
+                                </ul>
+                            </div>
+
+                            <div class="usage-card">
+                                <div class="usage-icon" style="background: rgba(131, 56, 236, 0.1);">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h4>Улучшение сервиса</h4>
+                                <ul>
+                                    <li>Анализ использования функций</li>
+                                    <li>Оптимизация производительности</li>
+                                    <li>Исправление ошибок</li>
+                                </ul>
+                            </div>
+
+                            <div class="usage-card">
+                                <div class="usage-icon" style="background: rgba(255, 0, 110, 0.1);">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h4>Поддержка пользователей</h4>
+                                <ul>
+                                    <li>Ответы на вопросы</li>
+                                    <li>Решение технических проблем</li>
+                                    <li>Предоставление помощи</li>
+                                </ul>
+                            </div>
+
+                            <div class="usage-card">
+                                <div class="usage-icon" style="background: rgba(46, 213, 115, 0.1);">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Безопасность</h4>
+                                <ul>
+                                    <li>Обнаружение злоупотреблений</li>
+                                    <li>Защита от спама</li>
+                                    <li>Мониторинг системы</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Хранение и защита данных -->
+                    <div class="privacy-section">
+                        <h3><i class="fas fa-lock"></i> Хранение и защита данных</h3>
+
+                        <div class="storage-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-icon"><i class="fas fa-bolt"></i></div>
+                                <div class="timeline-content">
+                                    <h4>Оперативная память</h4>
+                                    <p>Медиа файлы обрабатываются исключительно в оперативной памяти и удаляются сразу
+                                        после отправки на другую платформу.</p>
+                                    <div class="timeline-badge">Временное хранение</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon"><i class="fas fa-hdd"></i></div>
+                                <div class="timeline-content">
+                                    <h4>База данных</h4>
+                                    <p>Идентификаторы пользователей и настройки привязок хранятся в зашифрованной базе
+                                        данных.</p>
+                                    <div class="timeline-badge">Постоянное хранение</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon"><i class="fas fa-clock"></i></div>
+                                <div class="timeline-content">
+                                    <h4>Автоматическая очистка</h4>
+                                    <p>Неактивные привязки и старые логи автоматически удаляются по истечении срока
+                                        хранения.</p>
+                                    <div class="timeline-badge">Автоматическое управление</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-measures">
+                            <h4><i class="fas fa-shield-virus"></i> Меры безопасности</h4>
+                            <div class="measures-grid">
+                                <div class="measure">
+                                    <i class="fas fa-key"></i>
+                                    <h5>Шифрование</h5>
+                                    <p>Все передаваемые данные защищены SSL/TLS шифрованием</p>
+                                </div>
+                                <div class="measure">
+                                    <i class="fas fa-user-lock"></i>
+                                    <h5>Ограниченный доступ</h5>
+                                    <p>Доступ к файлам имеют только пользователи, а к технических данным только технические специалисты</p>
+                                </div>
+                                <div class="measure">
+                                    <i class="fas fa-save"></i>
+                                    <h5>Резервное копирование</h5>
+                                    <p>Ежедневное резервное копирование важных данных</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ваши права -->
+                    <div class="privacy-section">
+                        <h3><i class="fas fa-user-check"></i> Ваши права</h3>
+
+                        <div class="rights-grid">
+                            <div class="right-card">
+                                <div class="right-icon"><i class="fas fa-eye"></i></div>
+                                <h4>Право на доступ</h4>
+                                <p>Вы можете запросить информацию о том, какие ваши данные мы храним</p>
+                                <small>Используйте команду <code>/links</code> в Discord</small>
+                            </div>
+
+                            <div class="right-card">
+                                <div class="right-icon"><i class="fas fa-trash"></i></div>
+                                <h4>Право на удаление</h4>
+                                <p>Вы можете удалить свои данные и привязки</p>
+                                <small>Используйте команду <code>/disconnect</code></small>
+                            </div>
+                        </div>
+
+                        <div class="privacy-actions">
+                            <h4><i class="fas fa-cogs"></i> Как управлять своими данными</h4>
+
+                            <div class="action-item">
+                                <i class="fab fa-discord"></i>
+                                <div>
+                                    <h5>В Discord</h5>
+                                    <ul>
+                                        <li><code>/links</code> - Посмотреть ваши привязки</li>
+                                        <li><code>/disconnect</code> - Отвязать аккаунт</li>
+                                        <li><code>/stats</code> - Посмотреть статистику</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="action-item">
+                                <i class="fab fa-telegram"></i>
+                                <div>
+                                    <h5>В Telegram</h5>
+                                    <ul>
+                                        <li><code>/start</code> - Главное меню с настройками</li>
+                                        <li><code>/settings</code> - Настройки конфиденциальности</li>
+                                        <li><code>/clear_data</code> - Очистить данные</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Передача данных третьим лицам -->
+                    <div class="privacy-section">
+                        <h3><i class="fas fa-share-alt"></i> Передача данных третьим лицам</h3>
+
+                        <div class="privacy-alert">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p><strong>Важно:</strong> Мы не продаем, не сдаем в аренду и не передаем ваши личные данные
+                                третьим лицам.</p>
+                        </div>
+
+                        <div class="third-party-grid">
+                            <div class="third-party-card">
+                                <div class="party-header">
+                                    <i class="fab fa-discord"></i>
+                                    <i class="fab fa-telegram"></i>
+                                </div>
+                                <h4>Платформенные провайдеры</h4>
+                                <p>Мы используем официальные API Discord и Telegram для предоставления услуг. Ваши
+                                    данные передаются в соответствии с их политиками конфиденциальности.</p>
+                            </div>
+
+                            <div class="third-party-card">
+                                <div class="party-header">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <h4>Хостинг провайдеры</h4>
+                                <p>Используем проверенные облачные сервисы для хостинга. Все данные шифруются и
+                                    защищены.</p>
+                            </div>
+                        </div>
+
+                        <div class="exceptions-list">
+                            <h4><i class="fas fa-gavel"></i> Исключительные случаи</h4>
+                            <ul>
+                                <li><i class="fas fa-balance-scale"></i> <strong>По закону:</strong> При требовании суда
+                                    или правоохранительных органов</li>
+                                <li><i class="fas fa-user-shield"></i> <strong>Защита прав:</strong> Для защиты наших
+                                    прав или безопасности других пользователей</li>
+                                <li><i class="fas fa-exchange-alt"></i> <strong>Техническая необходимость:</strong> При
+                                    смене хостинг-провайдера с сохранением безопасности</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Дети -->
+                    <div class="privacy-section">
+                        <h3><i class="fas fa-child"></i> Дети и приватность</h3>
+                        <div class="children-info">
+                            <div class="children-icon"><i class="fas fa-user-lock"></i></div>
+                            <div>
+                                <p>Наш сервис не предназначен для детей младше 13 лет. Мы сознательно не собираем личную
+                                    информацию от детей младше 13 лет. Если вы являетесь родителем или опекуном и
+                                    считаете, что ваш ребенок предоставил нам личную информацию, пожалуйста, свяжитесь с
+                                    нами, чтобы мы могли удалить эту информацию.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Изменения в политике -->
+                    <div class="privacy-section">
+                        <h3><i class="fas fa-history"></i> Изменения в политике</h3>
+                        <div class="changes-info">
+                            <p>Мы можем обновлять эту Политику конфиденциальности время от времени. Мы уведомим вас о
+                                любых изменениях, разместив новую Политику конфиденциальности на этой странице и обновив
+                                дату "Последнее обновление".</p>
+                            <div class="change-notification">
+                                <i class="fas fa-bell"></i>
+                                <p><strong>Уведомление об изменениях:</strong> Значительные изменения в политике будут
+                                    объявлены через официальные каналы бота.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Контакты -->
+                    <div class="privacy-section">
+                        <h3><i class="fas fa-envelope"></i> Контакты</h3>
+                        <div class="contact-options">
+                            <div class="contact-option">
+                                <i class="fas fa-headset"></i>
+                                <div>
+                                    <h4>Поддержка</h4>
+                                    <p>По вопросам конфиденциальности или обработки данных:</p>
+                                    <a href="mailto:roma.sharper@yandex.ru">roma.sharper@yandex.ru</a>
+                                </div>
+                            </div>
+                            <div class="contact-option">
+                                <i class="fab fa-telegram"></i>
+                                <div>
+                                    <h4>Telegram</h4>
+                                    <p>Прямая связь с разработчиком:</p>
+                                    <a href="https://t.me/romasharper" target="_blank" rel="noopener">@romasharper</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Подтверждение -->
+                    <div class="privacy-acknowledgment">
+                        <div class="acknowledgment-box">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3><i class="fas fa-thumbs-up"></i> Подтверждение прочтения</h3>
+                                <p>Используя Media Sync Bot, вы подтверждаете, что прочитали и поняли эту Политику
+                                    конфиденциальности, и соглашаетесь с условиями сбора и использования вашей
+                                    информации, как описано выше.</p>
+                                <div class="acknowledgment-footer">
+                                    <small>Последнее обновление: <span id="current-date-footer"></span></small>
+                                    <script>
+                                        document.getElementById('current-date-footer').textContent =
+                                            new Date().toLocaleDateString('ru-RU');
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -418,6 +682,24 @@
                             качества.
                         </div>
                     </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Как долго обрабатываются файлы?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Обычно обработка занимает 1-5 секунд в зависимости от размера файла и скорости интернета.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Безопасно ли использовать бота?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Да! Бот имеет только необходимые разрешения и не сохраняет ваши файлы на серверах.
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -440,8 +722,8 @@
                         Поддерживает GIF, видео, изображения и многое другое.
                     </p>
                     <div class="footer-social">
-                        <a href="https://github.com/yourusername/media-sync-bot" class="social-link" title="GitHub"
-                            target="_blank" rel="noopener">
+                        <a href="https://github.com/RomaSharper" class="social-link" title="GitHub" target="_blank"
+                            rel="noopener">
                             <i class="fab fa-github"></i>
                         </a>
                         <a href="https://discord.com/oauth2/authorize?client_id=1465752838155014295" class="social-link"
@@ -461,68 +743,17 @@
                         <li><a href="#home"><i class="fas fa-home"></i> Главная</a></li>
                         <li><a href="#features"><i class="fas fa-star"></i> Возможности</a></li>
                         <li><a href="#how-it-works"><i class="fas fa-play-circle"></i> Как работает</a></li>
-                        <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                        <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Конфиденциальность</a></li>
                         <li><a href="#contact"><i class="fas fa-headset"></i> Поддержка</a></li>
+                        <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Конфиденциальность</a></li>
+                        <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
                     </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Ресурсы</h4>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-book"></i> Документация</a></li>
-                        <li><a href="#"><i class="fas fa-code"></i> API</a></li>
-                        <li><a href="https://discord.com/oauth2/authorize?client_id=1465752838155014295" target="_blank"
-                                rel="noopener"><i class="fas fa-download"></i> Загрузить</a></li>
-                        <li><a href="#support"><i class="fas fa-heart"></i> Поддержать проект</a></li>
-                        <li><a href="#contact"><i class="fas fa-bug"></i> Сообщить об ошибке</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Подписаться</h4>
-                    <p>Получайте уведомления о новых функциях и обновлениях</p>
-                    <form class="footer-subscribe" id="subscribe-form">
-                        <input type="email" placeholder="Ваш email" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                    <div class="footer-apps">
-                        <a href="https://discord.com/oauth2/authorize?client_id=1465752838155014295" class="app-btn"
-                            target="_blank" rel="noopener">
-                            <i class="fab fa-discord"></i> Discord App
-                        </a>
-                        <a href="https://t.me/gifs_collection_bot" class="app-btn" target="_blank" rel="noopener">
-                            <i class="fab fa-telegram"></i> Telegram Bot
-                        </a>
-                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <div class="footer-copyright">© 2026 Media Sync Bot. Все права защищены.</div>
+                <div class="footer-copyright">© <span id="current-year"></span> Media Sync Bot. Все права защищены.
+                </div>
                 <div class="footer-tagline">Создано с ❤️ для Discord и Telegram сообществ</div>
-                <div class="footer-legal">
-                    <a href="#privacy">Конфиденциальность</a>
-                    <a href="#terms">Условия использования</a>
-                    <a href="#cookies">Cookies</a>
-                </div>
-            </div>
-
-            <div class="footer-stats">
-                <div class="stat">
-                    <i class="fas fa-server"></i>
-                    <div>
-                        <div class="stat-value">99.9%</div>
-                        <div class="stat-label">Аптайм</div>
-                    </div>
-                </div>
-                <div class="stat">
-                    <i class="fas fa-bolt"></i>
-                    <div>
-                        <div class="stat-value">0.2с</div>
-                        <div class="stat-label">Время ответа</div>
-                    </div>
-                </div>
             </div>
         </div>
     </footer>
@@ -532,45 +763,9 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Live Chat Widget -->
-    <div class="chat-widget" id="chat-widget">
-        <div class="chat-header">
-            <i class="fas fa-comment-dots"></i>
-            <span>Чат поддержки</span>
-            <button class="chat-close" id="chat-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="chat-body">
-            <div class="chat-messages" id="chat-messages">
-                <div class="message bot">
-                    <div class="message-avatar">🤖</div>
-                    <div class="message-content">
-                        <div class="message-text">Привет! Чем могу помочь?</div>
-                        <div class="message-time">Только что</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" placeholder="Введите сообщение..." id="chat-input">
-                <button id="chat-send"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Chat Trigger Button -->
-    <button class="chat-trigger" id="chat-trigger">
-        <i class="fas fa-comments"></i>
-        <span class="chat-badge">3</span>
-    </button>
-
-    <script src="js/index.js"></script>
-    <script src="js/nav.js"></script>
-    <script src="js/select.js"></script>
-    <script src="js/form.js"></script>
-    <script src="js/email.js"></script>
-    <script src="js/ajax.js"></script>
-    <script src="js/cookie-banner.js"></script>
+    <script src="./js/contact-form.js"></script>
+    <script src="./js/select.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

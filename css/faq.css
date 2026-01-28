@@ -53,3 +53,25 @@
   display: block;
   animation: fadeIn 0.3s ease-out;
 }
+
+.faq-item.active .faq-answer {
+  display: block;
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-answer {
+  display: none;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.faq-question i {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
