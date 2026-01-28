@@ -1,0 +1,316 @@
+@import "keyframes.css";
+
+.custom-select {
+  position: relative;
+  width: 100%;
+  font-family: "Outfit", sans-serif;
+  z-index: 1000;
+}
+
+.select-header {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-user-select: none;
+  user-select: none;
+  min-height: 54px;
+}
+
+.select-header:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.select-header.open {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px var(--primary-glow);
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.select-header.open i {
+  transform: rotate(180deg);
+}
+
+.select-header i {
+  transition: transform 0.3s;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.select-placeholder {
+  color: var(--text-dim);
+  font-size: 1rem;
+}
+
+.select-value {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.selected-tag {
+  background: rgba(0, 217, 255, 0.1);
+  color: var(--primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2px;
+}
+
+.selected-tag button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.selected-tag button:hover {
+  color: var(--text);
+}
+
+.select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--primary);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 20px 60px rgba(0, 217, 255, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s;
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+}
+
+.select-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.select-search {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.select-search input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+}
+
+.select-search input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 20px var(--primary-glow);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.select-search i {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.select-options {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px;
+  padding: 0.5rem 0;
+}
+
+.select-option {
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  border-left: 3px solid transparent;
+}
+
+.select-option:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: var(--primary);
+}
+
+.select-option.selected {
+  background: rgba(0, 217, 255, 0.1);
+  color: var(--primary);
+  border-left-color: var(--primary);
+}
+
+.select-option i {
+  opacity: 0;
+  transition: opacity 0.2s;
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.select-option.selected i {
+  opacity: 1;
+}
+
+.select-option .option-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.select-option .option-icon {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  width: 20px;
+  text-align: center;
+}
+
+.select-option .option-badge {
+  background: rgba(0, 217, 255, 0.1);
+  color: var(--primary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+.select-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.select-custom-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: var(--text-dim);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.select-custom-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Multiple selection styles */
+.select-multiple .select-value {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  padding: 0.2rem 0;
+}
+
+.select-multiple .selected-tag {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Loading state */
+.select-loading {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-dim);
+}
+
+.select-loading i {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Empty state */
+.select-empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-dim);
+}
+
+.select-empty i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Scrollbar styling */
+.select-options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.select-options::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.select-options::-webkit-scrollbar-thumb {
+  background: rgba(0, 217, 255, 0.3);
+  border-radius: 3px;
+}
+
+.select-options::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 217, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .select-header {
+    padding: 0.875rem;
+    min-height: 50px;
+  }
+
+  .select-dropdown {
+    max-height: 350px;
+  }
+
+  .select-option {
+    padding: 0.75rem;
+  }
+}
